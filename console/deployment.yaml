@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: console
+  labels:
+    app.kubernetes.io/name: console
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: console
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: console
+    spec:
+      containers:
+      - name: console
+        image: bennyrochwerger/console
+#        resources:
+#          requests:
+#            cpu: 100m
+#            memory: 100Mi
+#        env:
+#        - name: GET_HOSTS_FROM
+#          value: dns
+        ports:
+        - containerPort: 5000
+
