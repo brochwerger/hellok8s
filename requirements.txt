@@ -1,1 +1,2 @@
-Flask
+redis~=3.5.3
+Flask~=1.1.2

@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app.kubernetes.io/name: hellok8s
       app.kubernetes.io/component: frontend
-  replicas: 5
+  replicas: 3
   template:
     metadata:
       labels:
@@ -19,14 +19,19 @@ spec:
     spec:
       containers:
       - name: hellok8s
-        image: bennyrochwerger/helloworld:1.2
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-#        env:
-#        - name: GET_HOSTS_FROM
-#          value: dns
+        image: bennyrochwerger/helloworld:1.4
+
+        env:
+        - name: NAME
+          value: "John Doe"
+
+        - name: BE_HOST
+          value: "backend"
+
+        - name: COUNTER
+          value: "VISITS"
+
         ports:
         - containerPort: 5000
 
+        imagePullPolicy: Always
