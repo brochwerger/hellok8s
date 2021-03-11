@@ -36,8 +36,8 @@ def hello_world():
         visits = int(visits) + 1
 
     db.set(counter_key, visits)
-
-    greeting = greeting + 'You are visitor number {}\n'.format(visits)
+    # greeting = greeting + 'You are visitor number {}\n'.format(visits)
+    greeting = 'Hello visitor #{} from {}.\n'.format(visits, myip)
 
     return greeting
 
