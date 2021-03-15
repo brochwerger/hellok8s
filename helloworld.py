@@ -9,22 +9,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    greeting = 'Hello World\n'  # 1.0
+
+    #   greeting = 'Hello World\n' # 1.0
 
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(("8.8.8.8", 80))
     myip = s.getsockname()[0]
     myname = socket.gethostbyaddr(socket.gethostname())[0]
     s.close()
-
-    naptime = random.uniform(100, 500) / 1000
-    time.sleep(naptime)
-
-    #   greeting = 'Hello World\n' # 1.0
     #   greeting = 'Hello World from {}.\n'.format(myname) # 1.1
     #   greeting = 'Hello World from {} ({}).\n'.format(myname, myip) # 1.2
-
-    greeting = 'Hello {} from {} ({}).\n'.format(os.environ.get("NAME", "You"), myname, myip)  # >= 1.3
+    #   greeting = 'Hello {} from {} ({}).\n'.format(os.environ.get("NAME", "You"), myname, myip)  # = 1.3
 
     # 1.4
     db = redis.Redis(host=os.environ.get('BE_HOST', 'localhost'))
@@ -38,6 +33,9 @@ def hello_world():
     db.set(counter_key, visits)
     # greeting = greeting + 'You are visitor number {}\n'.format(visits)
     greeting = 'Hello visitor #{} from {}.\n'.format(visits, myip)
+
+    naptime = random.uniform(100, 500) / 1000
+    time.sleep(naptime)
 
     return greeting
 
