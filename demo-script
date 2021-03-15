@@ -1,15 +1,13 @@
-1. show python source
-2. show yaml for deployment
-3. show yaml for service
-4. apply deployment and service
-5. login into demo console
-6. show DNS by looking up at service name
-7. show LB by curl loop
-8. kill pod
-9. scale deployment
-10. update deployment (1.2 -> 1.3)
-11. show dashboard
-12. play with enviroment variable in dashboard
-13. cleanup
-
-
+Show python and yaml for deployment/service 
+Show docker hub repository
+Show cluster nodes, pods, services
+Apply deployment and service
+Login into demo console
+Show DNS by looking up at service name
+Show LB by curl loop
+Self-healing (kill pod)
+Horizontal scaling
+Upgrade deployment (canary testing 1.2 -> 1.3)
+Add backend microservice
+Show dashboard
+Cleanup
