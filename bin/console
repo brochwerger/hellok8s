@@ -1,2 +1,3 @@
 #! /bin/bash
-microk8s kubectl exec -ti console-87cb4b54d-nkjkf -- bash
+consolepod=$(microk8s kubectl get pod | grep console | cut -d " " -f1)
+microk8s kubectl exec -ti $consolepod -- bash
